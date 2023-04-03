@@ -1,0 +1,19 @@
+{
+  "python.jediEnabled": false,
+  "coc.preferences.formatOnSave": [
+    "css",
+    "markdown",
+    "typescript",
+    "typescriptreact",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "html",
+    "vue",
+    "scss",
+    "less",
+    "stylus",
+    "yaml",
+    "python"
+  ]
+}
