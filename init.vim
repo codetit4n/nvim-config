@@ -26,12 +26,13 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'f-person/git-blame.nvim'
 
 set encoding=UTF-8
 
 call plug#end()
 
-nnoremap <silent><C-f> :NERDTreeFocus<CR>
+nnoremap <silent><C-f> :Telescope find_files<CR>
 nnoremap <silent><C-n> :NERDTree<CR>
 nnoremap <silent><C-t> :NERDTreeToggle<CR>
 
