@@ -31,9 +31,9 @@ keymap.set("n", "<leader>m", ":MaximizerToggle<CR>") -- toggle split window maxi
 keymap.set("n", "<leader>f", ":NvimTreeToggle<CR>") -- toggle file explorer
 
 -- telescope
-keymap.set("n", "<leader>tf", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>ts", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>tc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
+keymap.set("n", "<C-f>", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
+keymap.set("n", "<C-s>", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
+keymap.set("n", "<C-c>", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>tb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>th", "<cmd>Telescope help_tags<cr>") -- list available help tags
 
