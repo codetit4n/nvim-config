@@ -46,3 +46,7 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+-- move lines up and down
+keymap.set("n", "<leader>j", ":m +1<CR>")
+keymap.set("n", "<leader>k", ":m -2<CR>")
