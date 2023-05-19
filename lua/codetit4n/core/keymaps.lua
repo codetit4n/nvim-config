@@ -51,5 +51,5 @@ keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if ne
 keymap.set("n", "<leader>j", ":m +1<CR>")
 keymap.set("n", "<leader>k", ":m -2<CR>")
 
-keymap.set("c", "W", "w")
-keymap.set("c", "Q", "q")
+-- keymap.set("c", "W", "w")
+-- keymap.set("c", "Q", "q")
