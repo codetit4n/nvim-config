@@ -81,11 +81,6 @@ lspconfig["emmet_ls"].setup({
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
 
-lspconfig["solc"].setup({
-	on_attach = on_attach,
-	root_dir = lspconfig.util.root_pattern("hardhat.config.*", ".git"),
-})
-
 -- configure lua server (with special settings)
 lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
