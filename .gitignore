@@ -45,3 +45,6 @@ plugin/packer_compiled.lua
 
 # For GitHub Copilot
 pack
+
+# Spell dictionary files
+spell
