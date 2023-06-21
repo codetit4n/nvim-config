@@ -54,6 +54,25 @@ lspconfig["html"].setup({
 	on_attach = on_attach, -- for keybinds
 })
 
+-- configure rust_analyzer server
+lspconfig["rust_analyzer"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	cmd = {
+		"rustup",
+		"run",
+		"stable",
+		"rust-analyzer",
+	},
+	settings = {
+		["rust-analyzer"] = {
+			cargo = {
+				allFeatures = true,
+			},
+		},
+	},
+})
+
 -- configure typescript server with plugin
 typescript.setup({
 	server = {
@@ -100,4 +119,11 @@ lspconfig["lua_ls"].setup({
 			},
 		},
 	},
+})
+
+-- configure jedi language server (for python)
+lspconfig["jedi_language_server"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	single_file = true,
 })
