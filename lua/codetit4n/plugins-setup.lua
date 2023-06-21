@@ -115,6 +115,9 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- relative and absolute line numbers switching
+	use({ "sitiom/nvim-numbertoggle" })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

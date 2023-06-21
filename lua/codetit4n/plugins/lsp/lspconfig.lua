@@ -120,3 +120,10 @@ lspconfig["lua_ls"].setup({
 		},
 	},
 })
+
+-- configure jedi language server (for python)
+lspconfig["jedi_language_server"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	single_file = true,
+})
