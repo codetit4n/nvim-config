@@ -137,3 +137,9 @@ lspconfig["solidity"].setup({
 	single_file_support = true,
 	root_dir = lspconfig.util.find_git_ancestor,
 })
+
+-- configure c++ language server
+lspconfig["clangd"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
