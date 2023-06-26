@@ -37,7 +37,7 @@ return packer.startup(function(use)
 	-- use("folke/tokyonight.nvim") -- preferred colorscheme
 	-- use("projekt0n/github-nvim-theme") -- preferred colorscheme
 	-- use("navarasu/onedark.nvim") -- preferred colorscheme
-  use("EdenEast/nightfox.nvim") -- preferred colorscheme
+	use("EdenEast/nightfox.nvim") -- preferred colorscheme
 
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
