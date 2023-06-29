@@ -33,6 +33,7 @@ mason_lspconfig.setup({
 		"yamlls",
 		"jedi_language_server",
 		"clangd",
+		"csharp_ls",
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed
@@ -45,6 +46,7 @@ mason_null_ls.setup({
 		"stylua", -- lua formatter
 		"eslint_d", -- ts/js linter
 		"clang-format", -- c/c++ formatter
+		"csharpier", -- c# formatter
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
