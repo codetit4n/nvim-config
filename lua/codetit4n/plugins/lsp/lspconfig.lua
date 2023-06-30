@@ -127,3 +127,25 @@ lspconfig["jedi_language_server"].setup({
 	on_attach = on_attach,
 	single_file = true,
 })
+
+-- configure solidity language server
+lspconfig["solidity"].setup({
+	cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
+	filetypes = { "solidity" },
+	capabilities = capabilities,
+	on_attach = on_attach,
+	single_file_support = true,
+	root_dir = lspconfig.util.find_git_ancestor,
+})
+
+-- configure c++ language server
+lspconfig["clangd"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure csharp language server
+lspconfig["csharp_ls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
