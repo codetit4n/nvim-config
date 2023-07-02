@@ -122,6 +122,9 @@ return packer.startup(function(use)
 	-- relative and absolute line numbers switching
 	use({ "sitiom/nvim-numbertoggle" })
 
+	-- waka time
+	use("wakatime/vim-wakatime")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
