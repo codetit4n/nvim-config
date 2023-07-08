@@ -68,3 +68,9 @@ keymap.set("v", "<up>", "<nop>")
 keymap.set("v", "<down>", "<nop>")
 keymap.set("v", "<left>", "<nop>")
 keymap.set("v", "<right>", "<nop>")
+
+-- navigation in insert mode
+keymap.set("i", "<C-h>", "<left>")
+keymap.set("i", "<C-j>", "<down>")
+keymap.set("i", "<C-k>", "<up>")
+keymap.set("i", "<C-l>", "<right>")
