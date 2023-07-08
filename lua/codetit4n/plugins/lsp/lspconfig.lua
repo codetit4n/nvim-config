@@ -139,8 +139,10 @@ lspconfig["solidity"].setup({
 })
 
 -- configure c++ language server
+local capabilitiesClangd = vim.lsp.protocol.make_client_capabilities()
+capabilitiesClangd.offsetEncoding = { "utf-16" }
 lspconfig["clangd"].setup({
-	capabilities = capabilities,
+	capabilities = capabilitiesClangd,
 	on_attach = on_attach,
 })
 

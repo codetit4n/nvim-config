@@ -47,6 +47,7 @@ mason_null_ls.setup({
 		"eslint_d", -- ts/js linter
 		"clang-format", -- c/c++ formatter
 		"csharpier", -- c# formatter
+		"taplo", -- toml formatter
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,

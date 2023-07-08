@@ -23,6 +23,8 @@ null_ls.setup({
 		formatting.clang_format.with({
 			disabled_filetypes = { "cs" },
 		}), -- c/c++ formatter
+		formatting.forge_fmt, -- solidity formatter
+		formatting.taplo, -- toml formatter
 		formatting.csharpier, -- c# formatter
 		diagnostics.eslint_d.with({
 			-- js/ts linter
