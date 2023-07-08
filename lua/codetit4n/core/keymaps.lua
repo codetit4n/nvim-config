@@ -50,3 +50,7 @@ keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if ne
 -- move lines up and down
 keymap.set("n", "<leader>j", ":m +1<CR>")
 keymap.set("n", "<leader>k", ":m -2<CR>")
+
+-- Copilot Keymaps
+keymap.set("i", "<M-l>", "<Plug>(copilot-next)")
+keymap.set("i", "<M-h>", "<Plug>(copilot-previous)")
