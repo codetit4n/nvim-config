@@ -54,3 +54,17 @@ keymap.set("n", "<leader>k", ":m -2<CR>")
 -- Copilot Keymaps
 keymap.set("i", "<M-l>", "<Plug>(copilot-next)")
 keymap.set("i", "<M-h>", "<Plug>(copilot-previous)")
+
+-- disable arrow keys
+keymap.set("n", "<up>", "<nop>")
+keymap.set("n", "<down>", "<nop>")
+keymap.set("n", "<left>", "<nop>")
+keymap.set("n", "<right>", "<nop>")
+keymap.set("i", "<up>", "<nop>")
+keymap.set("i", "<down>", "<nop>")
+keymap.set("i", "<left>", "<nop>")
+keymap.set("i", "<right>", "<nop>")
+keymap.set("v", "<up>", "<nop>")
+keymap.set("v", "<down>", "<nop>")
+keymap.set("v", "<left>", "<nop>")
+keymap.set("v", "<right>", "<nop>")
