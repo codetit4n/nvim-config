@@ -52,8 +52,8 @@ keymap.set("n", "<leader>j", ":m +1<CR>")
 keymap.set("n", "<leader>k", ":m -2<CR>")
 
 -- Copilot Keymaps
-keymap.set("i", "<M-l>", "<Plug>(copilot-next)")
-keymap.set("i", "<M-h>", "<Plug>(copilot-previous)")
+keymap.set("i", "<M-]>", "<Plug>(copilot-next)")
+keymap.set("i", "<M-[>", "<Plug>(copilot-previous)")
 
 -- disable arrow keys
 keymap.set("n", "<up>", "<nop>")
@@ -69,8 +69,8 @@ keymap.set("v", "<down>", "<nop>")
 keymap.set("v", "<left>", "<nop>")
 keymap.set("v", "<right>", "<nop>")
 
--- navigation in insert mode
-keymap.set("i", "<C-h>", "<left>")
-keymap.set("i", "<C-j>", "<down>")
-keymap.set("i", "<C-k>", "<up>")
-keymap.set("i", "<C-l>", "<right>")
+-- insert mode keymaps
+keymap.set("i", "<M-h>", "<left>")
+keymap.set("i", "<M-l>", "<right>")
+keymap.set("i", "<M-j>", "<down>")
+keymap.set("i", "<M-k>", "<up>")
