@@ -9,7 +9,9 @@ saga.setup({
 	move_in_saga = { prev = "<C-k>", next = "<C-j>" },
 	-- use enter to open file with finder
 	definition = {
-		edit = "<CR>",
+		keys = {
+			edit = "<CR>", -- open file
+		},
 	},
 	symbol_in_winbar = {
 		enable = true,
