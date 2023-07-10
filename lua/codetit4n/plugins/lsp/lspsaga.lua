@@ -17,8 +17,7 @@ saga.setup({
 		ignore_patterns = {},
 		hide_keyword = true,
 		show_file = true,
-		folder_level = 2,
-		respect_root = false,
+		respect_root = true,
 		color_mode = true,
 	},
 })
