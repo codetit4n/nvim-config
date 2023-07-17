@@ -29,7 +29,7 @@ keymap.set("n", "<leader>m", ":MaximizerToggle<CR>") -- toggle split window maxi
 
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-keymap.set("n", "<leader>f", ":NvimTreeFocus<CR>") -- file explorer focus
+keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>") -- file explorer opens current file
 
 -- telescope
 keymap.set("n", "<C-f>", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
