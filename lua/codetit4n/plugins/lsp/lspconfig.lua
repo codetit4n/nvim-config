@@ -145,9 +145,3 @@ lspconfig["clangd"].setup({
 	capabilities = capabilitiesClangd,
 	on_attach = on_attach,
 })
-
--- configure csharp language server
-lspconfig["csharp_ls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})

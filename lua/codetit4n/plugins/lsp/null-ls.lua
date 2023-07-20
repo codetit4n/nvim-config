@@ -25,7 +25,6 @@ null_ls.setup({
 		}), -- c/c++ formatter
 		formatting.forge_fmt, -- solidity formatter
 		formatting.taplo, -- toml formatter
-		formatting.csharpier, -- c# formatter
 		diagnostics.eslint_d.with({
 			-- js/ts linter
 			-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
