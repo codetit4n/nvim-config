@@ -78,6 +78,7 @@ typescript.setup({
 	server = {
 		capabilities = capabilities,
 		on_attach = on_attach,
+		single_file = true,
 	},
 })
 
