@@ -72,3 +72,6 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 -- some search keymaps
 keymap.set("n", "n", "nzz")
 keymap.set("n", "N", "Nzz")
+
+-- open current file in firefox developer edition - browser I use for development
+keymap.set("n", "<leader>br", ":!open % -a Firefox\\ Developer\\ Edition<CR>")
