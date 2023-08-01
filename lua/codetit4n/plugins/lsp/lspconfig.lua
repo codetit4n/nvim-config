@@ -151,3 +151,12 @@ lspconfig["csharp_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+
+-- configure docker-compose language server
+lspconfig["docker_compose_language_service"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "yaml", "yml" },
+	root_dir = lspconfig.util.root_pattern("docker-compose.yml", "docker-compose.yaml"),
+	single_file_support = true,
+})
