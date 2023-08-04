@@ -160,3 +160,12 @@ lspconfig["docker_compose_language_service"].setup({
 	root_dir = lspconfig.util.root_pattern("docker-compose.yml", "docker-compose.yaml"),
 	single_file_support = true,
 })
+
+-- configure dockerfile language server
+lspconfig["dockerls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "Dockerfile", "dockerfile" },
+	root_dir = lspconfig.util.root_pattern("Dockerfile", "dockerfile"),
+	single_file_support = true,
+})
