@@ -66,8 +66,9 @@ keymap.set("v", "<left>", "<nop>")
 keymap.set("v", "<right>", "<nop>")
 
 -- movements
-keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "<C-d>", "<C-d>zz")
+keymap.set("n", "<C-b>", "<C-d>zz")
 
 -- some search keymaps
 keymap.set("n", "n", "nzz")
