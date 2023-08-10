@@ -15,4 +15,8 @@ return require('packer').startup(function(use)
 
    use 'marko-cerovac/material.nvim'
 
+   use({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
+
+   use 'mbbill/undotree'
+
 end)
