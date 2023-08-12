@@ -14,7 +14,7 @@ lsp.ensure_installed({
   "docker_compose_language_service",
   "dockerls",
   "move_analyzer",
-  "solidity_ls_nomicfoundation"
+  "solidity_ls_nomicfoundation",
   })
 
 local cmp = require('cmp')

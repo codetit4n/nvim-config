@@ -32,3 +32,6 @@ vim.keymap.set("n", "<leader>e", ":Explore<CR>") -- toggle file explorer
 -- copilot remaps
 vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)")
 vim.keymap.set("i", "<M-[>", "<Plug>(copilot-previous)")
+
+vim.keymap.set("n", "ciw", '"_ciw')
+vim.keymap.set("n", "x", '"_x')

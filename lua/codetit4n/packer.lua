@@ -13,7 +13,8 @@ return require('packer').startup(function(use)
    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-   use ('marko-cerovac/material.nvim')
+  use ('marko-cerovac/material.nvim')
+  -- use 'sainnhe/gruvbox-material'
 
    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
@@ -24,6 +25,15 @@ return require('packer').startup(function(use)
    use 'nvimdev/lspsaga.nvim'
 
    use 'nvim-tree/nvim-tree.lua'
+
+   use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+
+    require('packer').use { 'mhartington/formatter.nvim' }
+
+    use 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
    use {
        'VonHeikemen/lsp-zero.nvim', branch = 'v2.x',
