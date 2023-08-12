@@ -13,7 +13,7 @@ return require('packer').startup(function(use)
    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-   use 'marko-cerovac/material.nvim'
+   use ('marko-cerovac/material.nvim')
 
    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
          {'neovim/nvim-lspconfig'},             -- Required
          {'williamboman/mason.nvim'},           -- Optional
          {'williamboman/mason-lspconfig.nvim'}, -- Optional
-     
+
          -- Autocompletion
          {'hrsh7th/nvim-cmp'},     -- Required
          {'hrsh7th/cmp-nvim-lsp'}, -- Required
