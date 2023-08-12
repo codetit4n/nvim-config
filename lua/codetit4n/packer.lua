@@ -21,6 +21,10 @@ return require('packer').startup(function(use)
 
    use 'tpope/vim-fugitive'
 
+   use 'nvimdev/lspsaga.nvim'
+
+   use 'nvim-tree/nvim-tree.lua'
+
    use {
        'VonHeikemen/lsp-zero.nvim', branch = 'v2.x',
        requires = {

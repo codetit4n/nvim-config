@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n","<leader>e",vim.cmd.Ex)
 vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>")
 
@@ -24,4 +23,12 @@ vim.keymap.set("v", "<right>", "<nop>")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+-- nvim tree
+-- vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+-- vim.keymap.set("n", "<leader>E", ":NvimTreeFindFile<CR>") -- file explorer opens current file
+
+vim.keymap.set("n", "<leader>e", ":Explore<CR>") -- toggle file explorer
+
+-- copilot remaps
+vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)")
+vim.keymap.set("i", "<M-[>", "<Plug>(copilot-previous)")

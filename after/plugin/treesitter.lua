@@ -14,6 +14,8 @@ require'nvim-treesitter.configs'.setup {
     "json",
     "tsx",
     "jsonc",
+    "dockerfile",
+    "gitignore",
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
