@@ -78,6 +78,16 @@ require("formatter").setup({
 				}
 			end,
 		},
+		-- since no formatter for solidity, using forge - make sure it is installed
+		solidity = {
+			function()
+				return {
+					exe = "forge",
+					args = { "fmt" },
+					stdin = false,
+				}
+			end,
+		},
 		-- Formatter configurations for filetype "rust" go here
 		rust = {
 			-- "formatter.filetypes.rust" defines default configurations for the
@@ -128,7 +138,7 @@ require("formatter").setup({
 vim.api.nvim_exec(
 	[[  augroup FormatAutogroup
         autocmd!
-        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx FormatWrite
+        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol FormatWrite
     augroup END
     ]],
 	true

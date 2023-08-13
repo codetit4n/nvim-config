@@ -35,3 +35,10 @@ vim.keymap.set("i", "<M-[>", "<Plug>(copilot-previous)")
 
 vim.keymap.set("n", "ciw", '"_ciw')
 vim.keymap.set("n", "x", '"_x')
+vim.keymap.set("n", "cc", '"_cc')
+
+-- Remap moving in panes to leader + hjkl
+vim.keymap.set("n", "<leader>h", "<C-w>h")
+vim.keymap.set("n", "<leader>j", "<C-w>j")
+vim.keymap.set("n", "<leader>k", "<C-w>k")
+vim.keymap.set("n", "<leader>l", "<C-w>l")
