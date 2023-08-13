@@ -48,3 +48,8 @@ pack
 
 # Spell dictionary files
 spell
+
+**/.DS_Store
+
+-- packer install
+site

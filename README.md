@@ -4,7 +4,15 @@ My nvim config files for `macOS`
 
 These files go in `~/.config/nvim/`
 
-### Note:
+## Configs
 
-- [main branch](https://github.com/codeTIT4N/nvim-config/tree/main) - Most stable configuration.
-- [lua branch](https://github.com/codeTIT4N/nvim-config/tree/lua) - Latest configuration.
+#### Main branches
+
+- [main](https://github.com/codeTIT4N/nvim-config/tree/main) - Most stable config
+- [experimenting](https://github.com/codeTIT4N/nvim-config/tree/experimenting) - Latest config
+
+#### Other branches
+
+- [ubuntu-lua](https://github.com/codetit4n/nvim-config/tree/ubuntu-lua) - Lua config for my `ubuntu` machine (old)
+- [vimscript-minimal](https://github.com/codetit4n/nvim-config/tree/vimscript-minimal) - Vimscript config - very
+  minimal (old)
