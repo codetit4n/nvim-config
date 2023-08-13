@@ -1,9 +1,33 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- auto install packer if not installed
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
+end
+local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
--- Only required if you have packer configured as `opt`
-vim.cmd([[packadd packer.nvim]])
+-- autocommand that reloads neovim and installs/updates/removes plugins
+-- when file is saved
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost packer.lua source <afile> | PackerSync
+  augroup end
+]])
 
-return require("packer").startup(function(use)
+-- import packer safely
+local status, packer = pcall(require, "packer")
+if not status then
+	return
+end
+
+-- add list of plugins to install
+return packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
@@ -18,6 +42,8 @@ return require("packer").startup(function(use)
 	-- use("sainnhe/gruvbox-material")
 
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+
+	use("mhartington/formatter.nvim")
 
 	use("mbbill/undotree")
 
@@ -35,13 +61,18 @@ return require("packer").startup(function(use)
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
 	})
 
-	require("packer").use({ "mhartington/formatter.nvim" })
-
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 
 	use({ "sitiom/nvim-numbertoggle" })
 
 	use("wakatime/vim-wakatime")
+
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
 
 	use({
 		"VonHeikemen/lsp-zero.nvim",
@@ -58,4 +89,8 @@ return require("packer").startup(function(use)
 			{ "L3MON4D3/LuaSnip" }, -- Required
 		},
 	})
+
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)

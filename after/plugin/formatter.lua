@@ -132,6 +132,9 @@ require("formatter").setup({
 				}
 			end,
 		},
+		markdown = {
+			require("formatter.filetypes.markdown").prettier,
+		},
 	},
 })
 
@@ -139,7 +142,7 @@ require("formatter").setup({
 vim.api.nvim_exec(
 	[[  augroup FormatAutogroup
         autocmd!
-        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol FormatWrite
+        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md FormatWrite
     augroup END
     ]],
 	true

@@ -25,9 +25,9 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- nvim tree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-vim.keymap.set("n", "<leader>E", ":NvimTreeFindFile<CR>") -- file explorer opens current file
+vim.keymap.set("n", "<leader>t", ":NvimTreeFindFile<CR>") -- file explorer opens current file
 
--- vim.keymap.set("n", "<leader>e", ":Explore<CR>") -- toggle file explorer
+-- vim.keymap.set("n", "<leader>e", ":Explore<CR>") -- toggle netrw file explorer
 
 -- copilot remaps
 vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)")
@@ -35,7 +35,6 @@ vim.keymap.set("i", "<M-[>", "<Plug>(copilot-previous)")
 
 vim.keymap.set("n", "ciw", '"_ciw')
 vim.keymap.set("n", "x", '"_x')
-vim.keymap.set("n", "cc", '"_cc')
 
 -- Remap moving in panes to leader + hjkl
 vim.keymap.set("n", "<leader>h", "<C-w>h")
