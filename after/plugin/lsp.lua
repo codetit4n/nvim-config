@@ -22,7 +22,9 @@ local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = {
 	["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+	["<down>"] = cmp.mapping.select_next_item(cmp_select),
 	["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+	["<up>"] = cmp.mapping.select_prev_item(cmp_select),
 	["<CR>"] = cmp.mapping.confirm({ select = false }),
 }
 

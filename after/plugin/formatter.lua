@@ -6,7 +6,6 @@ require("mason-tool-installer").setup({
 	-- PLEASE NOTE: Only tools for formatters and linters here for clarity
 	ensure_installed = {
 		"stylua",
-		"rustfmt",
 		"clang-format",
 		"prettier",
 	},
@@ -78,11 +77,15 @@ require("formatter").setup({
 				}
 			end,
 		},
-		-- Formatter configurations for filetype "rust" go here
+		-- Since rustfmt is deprecated, install it using rustup
 		rust = {
-			-- "formatter.filetypes.rust" defines default configurations for the
-			-- "rust" filetype
-			require("formatter.filetypes.rust").rustfmt,
+			function()
+				return {
+					exe = "rustfmt",
+					args = { "--emit", "stdout" },
+					stdin = true,
+				}
+			end,
 		},
 		-- Formatter configurations for c, cpp, cs
 		c = {
@@ -138,11 +141,11 @@ require("formatter").setup({
 	},
 })
 
--- Format on save
+-- Format on save only if the file has been changed
 vim.api.nvim_exec(
 	[[  augroup FormatAutogroup
         autocmd!
-        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md FormatWrite
+        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md :silent! FormatWrite
     augroup END
     ]],
 	true
