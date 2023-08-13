@@ -24,10 +24,10 @@ vim.keymap.set("v", "<right>", "<nop>")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- nvim tree
--- vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
--- vim.keymap.set("n", "<leader>E", ":NvimTreeFindFile<CR>") -- file explorer opens current file
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+vim.keymap.set("n", "<leader>E", ":NvimTreeFindFile<CR>") -- file explorer opens current file
 
-vim.keymap.set("n", "<leader>e", ":Explore<CR>") -- toggle file explorer
+-- vim.keymap.set("n", "<leader>e", ":Explore<CR>") -- toggle file explorer
 
 -- copilot remaps
 vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)")
