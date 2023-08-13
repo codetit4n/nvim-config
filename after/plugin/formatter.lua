@@ -78,16 +78,6 @@ require("formatter").setup({
 				}
 			end,
 		},
-		-- since no formatter for solidity, using forge - make sure it is installed
-		solidity = {
-			function()
-				return {
-					exe = "forge",
-					args = { "fmt" },
-					stdin = false,
-				}
-			end,
-		},
 		-- Formatter configurations for filetype "rust" go here
 		rust = {
 			-- "formatter.filetypes.rust" defines default configurations for the
@@ -98,17 +88,18 @@ require("formatter").setup({
 		c = {
 			-- "formatter.filetypes.c" defines default configurations for the
 			-- "c" filetype
-			require("formatter.filetypes.c").clang_format,
+			require("formatter.filetypes.c").clangformat,
 		},
 		cpp = {
 			-- "formatter.filetypes.cpp" defines default configurations for the
 			-- "cpp" filetype
-			require("formatter.filetypes.cpp").clang_format,
+
+			require("formatter.filetypes.cpp").clangformat,
 		},
 		cs = {
 			-- "formatter.filetypes.cs" defines default configurations for the
 			-- "cs" filetype
-			require("formatter.filetypes.cs").clang_format,
+			require("formatter.filetypes.cs").clangformat,
 		},
 		-- Formatter configurations for filetype "javascript", "javascriptreact", "typescript", "typescriptreact" go here
 		javascript = {
@@ -130,6 +121,16 @@ require("formatter").setup({
 			-- "formatter.filetypes.typescriptreact" defines default configurations for the
 			-- "typescriptreact" filetype
 			require("formatter.filetypes.typescriptreact").prettier,
+		},
+		-- since no formatter for solidity, using forge - make sure it is installed
+		solidity = {
+			function()
+				return {
+					exe = "forge",
+					args = { "fmt" },
+					stdin = false,
+				}
+			end,
 		},
 	},
 })
