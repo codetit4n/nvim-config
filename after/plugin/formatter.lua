@@ -138,6 +138,9 @@ require("formatter").setup({
 		markdown = {
 			require("formatter.filetypes.markdown").prettier,
 		},
+		json = {
+			require("formatter.filetypes.json").prettier,
+		},
 	},
 })
 
@@ -145,7 +148,7 @@ require("formatter").setup({
 vim.api.nvim_exec(
 	[[  augroup FormatAutogroup
         autocmd!
-        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md :silent! FormatWrite
+        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md,*json :silent! FormatWrite
     augroup END
     ]],
 	true
