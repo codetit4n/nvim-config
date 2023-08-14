@@ -24,8 +24,8 @@ vim.keymap.set("v", "<right>", "<nop>")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- nvim tree
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-vim.keymap.set("n", "<leader>t", ":NvimTreeFindFile<CR>") -- file explorer opens current file
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
+vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- file explorer opens current file
 
 -- vim.keymap.set("n", "<leader>e", ":Explore<CR>") -- toggle netrw file explorer
 
