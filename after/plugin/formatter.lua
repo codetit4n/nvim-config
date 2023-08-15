@@ -104,6 +104,12 @@ require("formatter").setup({
 			-- "cs" filetype
 			require("formatter.filetypes.cs").clangformat,
 		},
+		-- Formatter configurations for filetype "java"
+		java = {
+			-- "formatter.filetypes.java" defines default configurations for the
+			-- "java" filetype
+			require("formatter.filetypes.java").clangformat,
+		},
 		-- Formatter configurations for filetype "javascript", "javascriptreact", "typescript", "typescriptreact" go here
 		javascript = {
 			-- "formatter.filetypes.javascript" defines default configurations for the
@@ -148,7 +154,7 @@ require("formatter").setup({
 vim.api.nvim_exec(
 	[[  augroup FormatAutogroup
         autocmd!
-        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md,*json :silent! FormatWrite
+        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md,*json,*java :silent! FormatWrite
     augroup END
     ]],
 	true

@@ -16,6 +16,7 @@ lsp.ensure_installed({
 	--	"move_analyzer",
 	"solidity_ls_nomicfoundation",
 	"csharp_ls",
+	"jdtls",
 })
 
 local cmp = require("cmp")
@@ -160,6 +161,12 @@ lspconfig["dockerls"].setup({
 
 -- configure solidity language server
 lspconfig["solidity_ls_nomicfoundation"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure java language server
+lspconfig["jdtls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
