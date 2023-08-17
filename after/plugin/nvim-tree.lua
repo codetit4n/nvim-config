@@ -8,7 +8,7 @@ vim.cmd([[ highlight NvimTreeIndentMarker guifg=#d9a27e ]]) -- arrows color
 vim.cmd([[ highlight NvimTreeFolderName guifg=white ]])
 vim.cmd([[ highlight NvimTreeEmptyFolderName guifg=grey ]])
 vim.cmd([[ highlight NvimTreeOpenedFolderName guifg=white ]])
-vim.cmd([[ highlight NvimTreeGitDirty guifg=#a5918d ]])
+vim.cmd([[ highlight NvimTreeGitDirty guifg=#ee9400 ]])
 vim.cmd([[ highlight NvimTreeGitStaged guifg=lightgreen ]])
 vim.cmd([[ highlight NvimTreeGitDeleted guifg=#d9918d ]])
 vim.cmd([[ highlight NvimTreeGitIgnored guifg=grey ]])
@@ -26,6 +26,7 @@ vim.cmd([[ highlight NvimTreeEndOfBuffer guifg=#afaf87 ]])
 vim.cmd([[ highlight NvimTreeStatuslineNc guifg=#afaf87 ]])
 vim.cmd([[ highlight NvimTreeWindowPicker guifg=#afaf87 ]])
 
+-- set nvim-tree options
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
 	view = {
