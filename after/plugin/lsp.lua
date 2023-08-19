@@ -13,10 +13,10 @@ lsp.ensure_installed({
 	"clangd",
 	"docker_compose_language_service",
 	"dockerls",
-	--	"move_analyzer",
 	"solidity_ls_nomicfoundation",
 	"csharp_ls",
 	"jdtls",
+	"move_analyzer",
 })
 
 local cmp = require("cmp")
@@ -28,15 +28,6 @@ local cmp_mappings = {
 	["<up>"] = cmp.mapping.select_prev_item(cmp_select),
 	["<CR>"] = cmp.mapping.confirm({ select = false }),
 }
-
-lsp.set_preferences({
-	sign_icons = {
-		Error = "",
-		Warning = "",
-		Hint = "",
-		Information = "",
-	},
-})
 
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
@@ -171,11 +162,10 @@ lspconfig["jdtls"].setup({
 	on_attach = on_attach,
 })
 
---[====[
 -- configure move_analyzer language server
 lspconfig["move_analyzer"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
+	capabilities = capabilities,
+	on_attach = on_attach,
 })
-]====]
+
 lsp.setup()

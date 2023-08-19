@@ -39,3 +39,13 @@ require("nvim-treesitter.configs").setup({
 		additional_vim_regex_highlighting = false,
 	},
 })
+
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.move = {
+	install_info = {
+		url = "https://github.com/codeTIT4N/tree-sitter-move", -- forked from https://github.com/yangzq12/tree-sitter-move
+		files = { "src/parser.c" },
+		branch = "master",
+	},
+	filetype = "move",
+}
