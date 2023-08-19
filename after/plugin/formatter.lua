@@ -154,7 +154,7 @@ require("formatter").setup({
 vim.api.nvim_exec(
 	[[  augroup FormatAutogroup
         autocmd!
-        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md,*json,*java :silent! FormatWrite
+        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md,*.json,*.java :silent! FormatWrite
     augroup END
     ]],
 	true

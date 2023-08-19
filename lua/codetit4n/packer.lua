@@ -47,8 +47,6 @@ return packer.startup(function(use)
 
 	use("mbbill/undotree")
 
-	use("tpope/vim-fugitive")
-
 	use("nvimdev/lspsaga.nvim")
 
 	use({
@@ -73,6 +71,8 @@ return packer.startup(function(use)
 			vim.fn["mkdp#util#install"]()
 		end,
 	})
+
+	use("lewis6991/gitsigns.nvim") -- Git signs
 
 	use({
 		"VonHeikemen/lsp-zero.nvim",
