@@ -1,4 +1,4 @@
-;https://github.com/move-hub/move-syntax-highlight/blob/master/queries/highlights.scm
+; https://github.com/move-hub/move-syntax-highlight/blob/12cda2eaeb81f362afa50c0d64d9f54582c34bcc/queries/highlights.scm
 (address_literal) @number
 (num_literal) @number
 (byte_string_literal) @string
