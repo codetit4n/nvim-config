@@ -40,6 +40,7 @@ return packer.startup(function(use)
 
 	use("marko-cerovac/material.nvim")
 	-- use("sainnhe/gruvbox-material")
+	-- use({"projekt0n/github-nvim-theme"})
 
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
@@ -71,6 +72,8 @@ return packer.startup(function(use)
 			vim.fn["mkdp#util#install"]()
 		end,
 	})
+
+	use("ThePrimeagen/vim-be-good")
 
 	use("lewis6991/gitsigns.nvim") -- Git signs
 
