@@ -31,6 +31,8 @@ require("nvim-tree").setup({
 	sort_by = "case_sensitive",
 	view = {
 		width = 30,
+		number = true,
+		relativenumber = true,
 	},
 	renderer = {
 		highlight_git = true,
