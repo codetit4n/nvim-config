@@ -1,8 +1,9 @@
 # nvim-config
 
-My nvim config files for `macOS`
+My neovim config files for `macOS`
 
-These files go in `~/.config/nvim/`
+- These files go in `~/.config/nvim`
+- My other dotfiles: https://github.com/codeTIT4N/dotfiles
 
 ## Configs
 
