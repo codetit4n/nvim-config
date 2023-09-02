@@ -48,8 +48,6 @@ return packer.startup(function(use)
 
 	use("mbbill/undotree")
 
-	use("nvimdev/lspsaga.nvim")
-
 	use({
 		"nvim-tree/nvim-tree.lua",
 		requires = { "kyazdani42/nvim-web-devicons" },
@@ -72,8 +70,6 @@ return packer.startup(function(use)
 			vim.fn["mkdp#util#install"]()
 		end,
 	})
-
-	use("ThePrimeagen/vim-be-good")
 
 	use("lewis6991/gitsigns.nvim") -- Git signs
 
