@@ -1,31 +1,6 @@
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- change the colours of everything according to the theme
-vim.cmd([[ highlight NvimTreeRootFolder guifg=#afaf87 ]])
-vim.cmd([[ highlight NvimTreeFolderIcon guifg=#afaf87 ]])
-vim.cmd([[ highlight NvimTreeIndentMarker guifg=#d9a27e ]]) -- arrows color
-vim.cmd([[ highlight NvimTreeFolderName guifg=white ]])
-vim.cmd([[ highlight NvimTreeEmptyFolderName guifg=grey ]])
-vim.cmd([[ highlight NvimTreeOpenedFolderName guifg=white ]])
-vim.cmd([[ highlight NvimTreeGitDirty guifg=#d99700 ]])
-vim.cmd([[ highlight NvimTreeGitStaged guifg=lightgreen ]])
-vim.cmd([[ highlight NvimTreeGitDeleted guifg=#d9918d ]])
-vim.cmd([[ highlight NvimTreeGitIgnored guifg=grey ]])
-vim.cmd([[ highlight NvimTreeGitIgnoredFile guifg=grey ]])
-vim.cmd([[ highlight NvimTreeGitNew guifg=#7cb262 ]])
-vim.cmd([[ highlight NvimTreeGitRenamed guifg=#afaf87 ]])
-vim.cmd([[ highlight NvimTreeGitMerge guifg=yellow ]])
-vim.cmd([[ highlight NvimTreeSymlink guifg=white ]])
-vim.cmd([[ highlight NvimTreeExecFile guifg=white ]])
-vim.cmd([[ highlight NvimTreeSpecialFile guifg=white ]])
-vim.cmd([[ highlight NvimTreeImageFile guifg=white ]])
-vim.cmd([[ highlight NvimTreeMarkdownFile guifg=white ]])
-vim.cmd([[ highlight NvimTreeVertSplit guifg=#afaf87 ]])
-vim.cmd([[ highlight NvimTreeEndOfBuffer guifg=#afaf87 ]])
-vim.cmd([[ highlight NvimTreeStatuslineNc guifg=#afaf87 ]])
-vim.cmd([[ highlight NvimTreeWindowPicker guifg=#afaf87 ]])
-
 -- set nvim-tree options
 require("nvim-tree").setup({
 	sort_by = "case_sensitive",
@@ -96,3 +71,26 @@ local function open_nvim_tree(data)
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+-- change the colours of everything according to the theme
+vim.cmd([[ highlight NvimTreeCursorLine guifg=none ]])
+vim.cmd([[ highlight NvimTreeRootFolder guifg=#afaf87 ]])
+vim.cmd([[ highlight NvimTreeFolderIcon guifg=#afaf87 ]])
+vim.cmd([[ highlight NvimTreeFolderName guifg=white ]])
+vim.cmd([[ highlight NvimTreeEmptyFolderName guifg=grey ]])
+vim.cmd([[ highlight NvimTreeOpenedFolderName guifg=white ]])
+vim.cmd([[ highlight NvimTreeGitDirty guifg=#d99700 ]])
+vim.cmd([[ highlight NvimTreeGitStaged guifg=lightgreen ]])
+vim.cmd([[ highlight NvimTreeGitDeleted guifg=#d9918d ]])
+vim.cmd([[ highlight NvimTreeGitIgnored guifg=grey ]])
+vim.cmd([[ highlight NvimTreeGitIgnoredFile guifg=grey ]])
+vim.cmd([[ highlight NvimTreeGitNew guifg=#7cb262 ]])
+vim.cmd([[ highlight NvimTreeGitRenamed guifg=#afaf87 ]])
+vim.cmd([[ highlight NvimTreeGitMerge guifg=yellow ]])
+vim.cmd([[ highlight NvimTreeSymlink guifg=white ]])
+vim.cmd([[ highlight NvimTreeExecFile guifg=white ]])
+vim.cmd([[ highlight NvimTreeSpecialFile guifg=white ]])
+vim.cmd([[ highlight NvimTreeImageFile guifg=white ]])
+vim.cmd([[ highlight NvimTreeVertSplit guifg=#afaf87 ]])
+vim.cmd([[ highlight NvimTreeEndOfBuffer guifg=#afaf87 ]])
+vim.cmd([[ highlight NvimTreeStatuslineNc guifg=#afaf87 ]])
+vim.cmd([[ highlight NvimTreeWindowPicker guifg=#afaf87 ]])
