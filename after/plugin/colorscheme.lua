@@ -4,6 +4,6 @@ function ColorMyScreen(color)
 	vim.cmd.colorscheme(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "Cursor", { bg = "gray" })
+	vim.api.nvim_set_hl(0, "Cursor", { bg = "#d7d9db" })
 end
 ColorMyScreen()
