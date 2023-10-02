@@ -10,7 +10,7 @@ lsp.ensure_installed({
 	"marksman",
 	"yamlls",
 	"jedi_language_server",
-	"clangd",
+	--	"clangd",
 	"docker_compose_language_service",
 	"dockerls",
 	"solidity_ls_nomicfoundation",
@@ -137,12 +137,19 @@ lspconfig["yamlls"].setup({
 })
 
 -- configure c++ language server
-local capabilitiesClangd = vim.lsp.protocol.make_client_capabilities()
-capabilitiesClangd.offsetEncoding = { "utf-16" }
-lspconfig["clangd"].setup({
-	capabilities = capabilitiesClangd,
+-- local capabilitiesClangd = vim.lsp.protocol.make_client_capabilities()
+-- capabilitiesClangd.offsetEncoding = { "utf-16" }
+-- lspconfig["clangd"].setup({
+-- 	capabilities = capabilitiesClangd,
+-- 	on_attach = on_attach,
+-- 	disable_filetype = { "cs" },
+-- })
+
+-- configure sourcekit language server - for c/c++/objective-c/objc++/swift - requires xcode
+lspconfig["sourcekit"].setup({
+	capabilities = capabilities,
 	on_attach = on_attach,
-	disable_filetype = { "cs" },
+	single_file = true,
 })
 
 lspconfig["csharp_ls"].setup({
