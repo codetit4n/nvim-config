@@ -25,8 +25,8 @@ require("nvim-tree").setup({
 					ignored = "◌",
 				},
 				folder = {
-					arrow_closed = "", -- arrow when folder is closed
-					arrow_open = "", -- arrow when folder is open
+					arrow_closed = "=", -- arrow when folder is closed
+					arrow_open = "v", -- arrow when folder is open
 				},
 			},
 			show = {
