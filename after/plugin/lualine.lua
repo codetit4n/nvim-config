@@ -9,7 +9,7 @@ require("lualine").setup({
 		lualine_x = {
 			{
 				function()
-					return "macOS"
+					return " "
 				end,
 				right_padding = 0,
 			},
