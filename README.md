@@ -1,10 +1,5 @@
 # nvim-config
 
-My nvim config files for `macOS`
+My nvim config files for my old `ubuntu` machine.
 
-These files go in `~/.config/nvim/`
-
-### Note:
-
-- [main branch](https://github.com/codeTIT4N/nvim-config/tree/main) - Most stable configuration.
-- [lua branch](https://github.com/codeTIT4N/nvim-config/tree/lua) - Latest configuration.
+These files go in `~/.config/nvim`
