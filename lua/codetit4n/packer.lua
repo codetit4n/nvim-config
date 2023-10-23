@@ -41,6 +41,7 @@ return packer.startup(function(use)
 	use("ThePrimeagen/harpoon")
 
 	use("marko-cerovac/material.nvim")
+	use("chriskempson/base16-vim")
 	-- use("sainnhe/gruvbox-material")
 	-- use({"projekt0n/github-nvim-theme"})
 

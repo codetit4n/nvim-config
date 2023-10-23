@@ -15,16 +15,16 @@ gitsigns.setup({
 	},
 	on_attach = function(bufnr)
 		vim.cmd([[
-      hi GitSignsAdd guifg=#98c379 guibg=#1e222a
-      hi GitSignsAddNr guifg=#98c379 guibg=#1e222a
-      hi GitSignsAddLn guifg=#98c379 guibg=#1e222a
-      hi GitSignsChange guifg=#61afef guibg=#1e222a
-      hi GitSignsChangeNr guifg=#61afef guibg=#1e222a
-      hi GitSignsChangeLn guifg=#61afef guibg=#1e222a
-      hi GitSignsDelete guifg=#e06c75 guibg=#1e222a
-      hi GitSignsDeleteNr guifg=#e06c75 guibg=#1e222a
-      hi GitSignsDeleteLn guifg=#e06c75 guibg=#1e222a
-    ]])
+		      hi GitSignsAdd guifg=#98c379 guibg=#1e222a
+		      hi GitSignsAddNr guifg=#98c379 guibg=#1e222a
+		      hi GitSignsAddLn guifg=#98c379 guibg=#1e222a
+		      hi GitSignsChange guifg=#61afef guibg=#1e222a
+		      hi GitSignsChangeNr guifg=#61afef guibg=#1e222a
+		      hi GitSignsChangeLn guifg=#61afef guibg=#1e222a
+		      hi GitSignsDelete guifg=#e06c75 guibg=#1e222a
+		      hi GitSignsDeleteNr guifg=#e06c75 guibg=#1e222a
+		      hi GitSignsDeleteLn guifg=#e06c75 guibg=#1e222a
+		    ]])
 		vim.keymap.set(
 			"n",
 			"<leader>gp",
