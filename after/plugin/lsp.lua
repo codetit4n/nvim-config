@@ -105,6 +105,8 @@ lspconfig["rust_analyzer"].setup({
 		"run",
 		"stable",
 		"rust-analyzer",
+		"--cfg",
+		"--all-features",
 	},
 })
 
