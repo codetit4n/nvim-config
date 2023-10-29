@@ -16,7 +16,6 @@ lsp.ensure_installed({
 	"solidity_ls_nomicfoundation",
 	"csharp_ls",
 	"jdtls",
-	"move_analyzer",
 })
 
 local cmp = require("cmp")
@@ -182,10 +181,12 @@ lspconfig["jdtls"].setup({
 	on_attach = on_attach,
 })
 
--- configure move_analyzer language server
+-- install aptos move analyzer - cargo install --git https://github.com/movebit/move --branch feature/aptos_move_analyzer aptos-move-analyzer
 lspconfig["move_analyzer"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	cmd = { "aptos-move-analyzer" },
+	filetypes = { "move" },
 })
 
 lsp.setup()
