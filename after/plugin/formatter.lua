@@ -81,7 +81,7 @@ require("formatter").setup({
 		rust = {
 			function()
 				return {
-					exe = "rustfmt",
+					exe = "rustfmt --edition 2018",
 					args = { "--emit", "stdout" },
 					stdin = true,
 				}
