@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
-vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("i", "jk", "<ESC>") --temporary will remove later
+vim.keymap.set("i", "<C-j>", "<ESC>")
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -27,11 +28,13 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
 vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- file explorer opens current file
 
--- vim.keymap.set("n", "<leader>e", ":Explore<CR>") -- toggle netrw file explorer
-
 -- copilot remaps
 vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)")
 vim.keymap.set("i", "<M-[>", "<Plug>(copilot-previous)")
+vim.keymap.set("n", "<M-e>", ":Copilot enable<CR>")
+vim.keymap.set("n", "<M-d>", ":Copilot disable<CR>")
+vim.keymap.set("i", "<M-e>", "<ESC>:Copilot enable<CR>a")
+vim.keymap.set("i", "<M-d>", "<ESC>:Copilot disable<CR>a")
 
 vim.keymap.set("n", "ciw", '"_ciw')
 vim.keymap.set("n", "x", '"_x')
