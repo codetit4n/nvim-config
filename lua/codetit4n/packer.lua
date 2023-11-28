@@ -76,6 +76,8 @@ return packer.startup(function(use)
 
 	use("lewis6991/gitsigns.nvim") -- Git signs
 
+	use("tpope/vim-surround") -- Surround
+
 	use({
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
