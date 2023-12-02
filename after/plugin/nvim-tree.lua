@@ -72,7 +72,7 @@ end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 -- change the colours of everything according to the theme
-vim.cmd([[ highlight NvimTreeCursorLine guifg=none ]])
+vim.cmd([[ highlight NvimTreeCursorLine guibg=#2a2a2a ]])
 vim.cmd([[ highlight NvimTreeRootFolder guifg=#afaf87 ]])
 vim.cmd([[ highlight NvimTreeFolderIcon guifg=#afaf87 ]])
 vim.cmd([[ highlight NvimTreeFolderName guifg=lightgrey ]])
