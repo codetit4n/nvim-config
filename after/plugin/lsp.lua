@@ -1,6 +1,10 @@
 local lsp = require("lsp-zero").preset({})
 local lspconfig = require("lspconfig")
 
+vim.diagnostic.config({
+	virtual_text = false,
+})
+
 lsp.ensure_installed({
 	"tsserver",
 	"rust_analyzer",
@@ -51,10 +55,10 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>vd", function()
 		vim.diagnostic.open_float()
 	end, opts)
-	vim.keymap.set("n", "[d", function()
+	vim.keymap.set("n", "]d", function()
 		vim.diagnostic.goto_next()
 	end, opts)
-	vim.keymap.set("n", "]d", function()
+	vim.keymap.set("n", "[d", function()
 		vim.diagnostic.goto_prev()
 	end, opts)
 	vim.keymap.set("n", "<leader>vca", function()
