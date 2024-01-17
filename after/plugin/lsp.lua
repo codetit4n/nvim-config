@@ -1,6 +1,10 @@
 local lsp = require("lsp-zero").preset({})
 local lspconfig = require("lspconfig")
 
+vim.diagnostic.config({
+	virtual_text = false,
+})
+
 lsp.ensure_installed({
 	"tsserver",
 	"rust_analyzer",
@@ -49,7 +53,7 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<leader>vws", function()
 		vim.lsp.buf.workspace_symbol()
 	end, opts)
-	vim.keymap.set("n", "<leader>vd", function()
+	vim.keymap.set("n", "<leader>d", function()
 		vim.diagnostic.open_float()
 	end, opts)
 	vim.keymap.set("n", "[d", function()
@@ -188,10 +192,12 @@ lspconfig["jdtls"].setup({
 	on_attach = on_attach,
 })
 
--- configure move_analyzer language server
+-- install aptos move analyzer - cargo install --git https://github.com/movebit/move --branch feature/aptos_move_analyzer aptos-move-analyzer
 lspconfig["move_analyzer"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	cmd = { "aptos-move-analyzer" },
+	filetypes = { "move" },
 })
 
 lsp.setup()
