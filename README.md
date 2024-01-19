@@ -1,6 +1,6 @@
 # nvim-config - old
 
-> **Warning**
+> [!WARNING]\
 > Not in use anymore
 
 My nvim config files for my old `ubuntu` machine.
