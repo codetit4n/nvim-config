@@ -77,11 +77,25 @@ require("formatter").setup({
 				}
 			end,
 		},
+		-- https://github.com/movebit/movefmt
+		--move = {
+		--	function()
+		--		return {
+		--			exe = "movefmt",
+		--			args = {
+		--				util.escape_path(util.get_current_buffer_file_path()),
+		--				"--emit",
+		--				"stdout",
+		--			},
+		--			stdin = true,
+		--		}
+		--	end,
+		--},
 		-- Since rustfmt is deprecated, install it using rustup
 		rust = {
 			function()
 				return {
-					exe = "rustfmt --edition 2018",
+					exe = "rustfmt --edition 2021",
 					args = { "--emit", "stdout" },
 					stdin = true,
 				}
@@ -159,3 +173,12 @@ vim.api.nvim_exec(
     ]],
 	true
 )
+---- For move
+--vim.api.nvim_exec(
+--	[[  augroup FormatAutogroup
+--        autocmd!
+--        autocmd BufWritePost *.move :silent! vim.lsp.buf.format()
+--    augroup END
+--    ]],
+--	true
+--)

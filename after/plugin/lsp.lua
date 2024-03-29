@@ -5,6 +5,15 @@ vim.diagnostic.config({
 	virtual_text = false,
 })
 
+vim.tbl_deep_extend("keep", lspconfig, {
+
+	aptos_move_analyzer = {
+		cmd = { "aptos-move-analyzer" },
+		filetypes = { "move" },
+		name = "aptos_move_analyzer",
+	},
+})
+
 lsp.ensure_installed({
 	"tsserver",
 	"rust_analyzer",
@@ -188,7 +197,7 @@ lspconfig["jdtls"].setup({
 	on_attach = on_attach,
 })
 
--- install aptos move analyzer - cargo install --git https://github.com/movebit/move --branch feature/aptos_move_analyzer aptos-move-analyzer
+-- install aptos move analyzer - cargo install --git https://github.com/movebit/move --branch aptos-move-analyzer aptos-move-analyzer
 lspconfig["move_analyzer"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
