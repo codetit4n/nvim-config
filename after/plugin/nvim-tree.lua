@@ -10,7 +10,7 @@ require("nvim-tree").setup({
 		relativenumber = true,
 	},
 	renderer = {
-		highlight_git = false,
+		highlight_git = true,
 		icons = {
 			glyphs = {
 				default = "",
@@ -71,3 +71,14 @@ local function open_nvim_tree(data)
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+vim.cmd([[ highlight NvimTreeGitIgnoredFile guifg=grey ]])
+vim.cmd([[ highlight NvimTreeGitIgnored guifg=grey ]])
+vim.cmd([[ highlight NvimTreeGitDirtyIcon guifg=#FFAA33 ]])
+vim.cmd([[ highlight NvimTreeGitNewIcon guifg=#7cb262 ]])
+vim.cmd([[ highlight NvimTreeGitDeletedIcon guifg=#d9918d ]])
+vim.cmd([[ highlight NvimTreeGitStagedIcon guifg=lightgreen ]])
+vim.cmd([[ highlight NvimTreeGitRenamedIcon guifg=#afaf87 ]])
+vim.cmd([[ highlight NvimTreeGitMergeIcon guifg=orange ]])
+vim.cmd([[ highlight NvimTreeLineNr guifg=none guibg=none ]])
+vim.cmd([[ highlight NvimTreeCursorLine guifg=none guibg=#404040]])
+vim.cmd([[ highlight NvimTreeCursorLineNr guibg=none]])
