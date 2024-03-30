@@ -25,12 +25,16 @@ vim.keymap.set("v", "<right>", "<nop>")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- nvim tree
---vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
---vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- file explorer opens current file
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
+vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- file explorer opens current file
 
 -- nvim-neo-tree
-vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { silent = true }) -- toggle file explorer
-vim.keymap.set("n", "<leader>f", ":Neotree reveal<CR>", { silent = true }) -- file explorer opens current file
+--vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { silent = true }) -- toggle file explorer
+--vim.keymap.set("n", "<leader>f", ":Neotree reveal<CR>", { silent = true }) -- file explorer opens current file
+
+-- Drex
+--vim.keymap.set("n", "<leader>e", ":DrexDrawerToggle<CR>", { silent = true }) -- toggle file explorer
+--vim.keymap.set("n", "<leader>f", ":DrexDrawerFindFileAndFocus<CR>", { silent = true }) -- file explorer opens current file
 
 -- copilot remaps
 vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)")
