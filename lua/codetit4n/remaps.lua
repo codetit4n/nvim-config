@@ -39,10 +39,14 @@ vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- 
 -- copilot remaps
 vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)")
 vim.keymap.set("i", "<M-[>", "<Plug>(copilot-previous)")
-vim.keymap.set("n", "<M-e>", ":Copilot enable<CR>")
-vim.keymap.set("n", "<M-d>", ":Copilot disable<CR>")
-vim.keymap.set("i", "<M-e>", "<ESC>:Copilot enable<CR>a")
-vim.keymap.set("i", "<M-d>", "<ESC>:Copilot disable<CR>a")
+vim.keymap.set("n", "<M-2>", ":Copilot enable<CR>")
+vim.keymap.set("n", "<M-1>", ":Copilot disable<CR>")
+vim.keymap.set("i", "<M-2>", "<ESC>:Copilot enable<CR>a")
+vim.keymap.set("i", "<M-1>", "<ESC>:Copilot disable<CR>a")
+vim.keymap.set("n", "<M-@>", ":Copilot enable<CR>")
+vim.keymap.set("n", "<M-!>", ":Copilot disable<CR>")
+vim.keymap.set("i", "<M-@>", "<ESC>:Copilot enable<CR>a")
+vim.keymap.set("i", "<M-!>", "<ESC>:Copilot disable<CR>a")
 
 vim.keymap.set("n", "ciw", '"_ciw')
 vim.keymap.set("n", "x", '"_x')
