@@ -40,6 +40,15 @@ require("mason-tool-installer").setup({
 -- Utilities for creating configurations
 local util = require("formatter.util")
 
+-- Function to print error message in red -- todo - look into this
+--local function printError(message)
+--    -- ANSI escape code for red color
+--    local RED = "\27[31m"
+--
+--    -- Concatenate error message with red color code
+--    io.write(RED .. message)
+--end
+
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
 	-- Enable or disable logging
@@ -77,20 +86,41 @@ require("formatter").setup({
 				}
 			end,
 		},
-		-- https://github.com/movebit/movefmt
-		--move = {
-		--	function()
-		--		return {
-		--			exe = "movefmt",
-		--			args = {
-		--				util.escape_path(util.get_current_buffer_file_path()),
-		--				"--emit",
-		--				"stdout",
-		--			},
-		--			stdin = true,
-		--		}
-		--	end,
-		--},
+		-- Movefmt formatter for Move language
+		-- Install movefmt - cargo install --git https://github.com/movebit/movefmt --branch develop movefmt
+		-- (last working version: 0.1.0)
+		move = {
+			function()
+				-- some magic to check if file has a parse error before formatting
+				local success, msg = pcall(function()
+					local res = vim.fn.systemlist(
+						"movefmt "
+							.. util.escape_path(util.get_current_buffer_file_path())
+							.. " --emit stdout"
+							.. " | grep 'ERROR' | grep 'movefmt' | wc -l"
+					)
+					if tonumber(res[2]) == 0 then
+						return true
+					else
+						error("ERROR: parse not ok!")
+					end
+				end)
+				if not success then
+                    -- print error message - todo
+					return nil
+				end
+
+				return {
+					exe = "movefmt",
+					args = {
+						util.escape_path(util.get_current_buffer_file_path()),
+						"--emit",
+						"stdout",
+					},
+					stdin = true,
+				}
+			end,
+		},
 		-- Since rustfmt is deprecated, install it using rustup
 		rust = {
 			function()
@@ -168,16 +198,16 @@ require("formatter").setup({
 vim.api.nvim_exec(
 	[[  augroup FormatAutogroup
         autocmd!
-        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md,*.json,*.java :silent! FormatWrite
+        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md,*.json,*.java,*.move :silent! FormatWrite
     augroup END
     ]],
 	true
 )
----- For move
---vim.api.nvim_exec(
+
+--vim.api.nvim_exec( -- todo - seperate movefmt to show error message
 --	[[  augroup FormatAutogroup
 --        autocmd!
---        autocmd BufWritePost *.move :silent! vim.lsp.buf.format()
+--        autocmd BufWritePost *.move FormatWrite
 --    augroup END
 --    ]],
 --	true
