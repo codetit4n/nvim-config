@@ -92,7 +92,7 @@ require("formatter").setup({
 		move = {
 			function()
 				-- some magic to check if file has a parse error before formatting
-				local success, msg = pcall(function()
+				local success, _ = pcall(function()
 					local res = vim.fn.systemlist(
 						"movefmt "
 							.. util.escape_path(util.get_current_buffer_file_path())
@@ -106,7 +106,7 @@ require("formatter").setup({
 					end
 				end)
 				if not success then
-                    -- print error message - todo
+					-- print error message - todo
 					return nil
 				end
 
