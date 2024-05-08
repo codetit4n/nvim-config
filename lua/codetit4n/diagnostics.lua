@@ -1,3 +1,7 @@
+vim.diagnostic.config({
+    virtual_text = false,
+})
+
 -- change the diagnostic signs
 local signs = { Error = "! ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
