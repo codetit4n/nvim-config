@@ -1,7 +1,6 @@
--- Configurations for the Move language server
+-- Configurations for the Sway language server
 
--- install aptos move analyzer - cargo install --git https://github.com/movebit/move --branch feature/aptos_move_analyzer aptos-move-analyzer
--- (last working version: 0.3.0)
+-- install sway language server - https://fuel.network
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- enable keybinds only for when lsp server available
@@ -41,10 +40,11 @@ local on_attach = function(client, bufnr)
 	end, opts)
 end
 
+-- sway language server
 vim.lsp.start({
-	name = "aptos-move-analyzer",
-	cmd = { "aptos-move-analyzer" },
-	filetypes = { "move" },
+	name = "forc-lsp",
+	cmd = { "forc-lsp" },
+	filetypes = { "sway" },
 	single_file_support = true,
 	on_attach = on_attach,
 	capabilities = capabilities,
