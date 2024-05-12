@@ -42,11 +42,11 @@ return {
 				--		},
 				--	},
 				--},
-				--git = {
-				--	enable = true,
-				--	ignore = false,
-				--	timeout = 500,
-				--},
+				git = {
+					enable = true,
+					ignore = false,
+					timeout = 500,
+				},
 			})
 		end,
 	},
