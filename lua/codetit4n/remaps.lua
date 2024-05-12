@@ -51,4 +51,6 @@ vim.keymap.set("i", "<M-!>", "<ESC>:Copilot disable<CR>a")
 vim.keymap.set("n", "ciw", '"_ciw')
 vim.keymap.set("n", "x", '"_x')
 
-vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
+ -- Enable/Disable relative line numbers -- TODO
+--vim.keymap.set("n", "<C-E>", ":setlocal relativenumber<CR>" , { silent = true})
+--vim.keymap.set("n", "<C-e>", ":setlocal norelativenumber<CR>" , { silent = true})
