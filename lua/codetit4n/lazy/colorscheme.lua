@@ -11,10 +11,10 @@ function ColorScheme(color)
 end
 
 return {
-    {
-        "chriskempson/base16-vim",
-        config = function()
-            ColorScheme();
-        end
-    }
+	{
+		"chriskempson/base16-vim",
+		config = function()
+			ColorScheme()
+		end,
+	},
 }

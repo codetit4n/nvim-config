@@ -28,14 +28,6 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
 vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- file explorer opens current file
 
--- nvim-neo-tree
---vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { silent = true }) -- toggle file explorer
---vim.keymap.set("n", "<leader>f", ":Neotree reveal<CR>", { silent = true }) -- file explorer opens current file
-
--- Drex
---vim.keymap.set("n", "<leader>e", ":DrexDrawerToggle<CR>", { silent = true }) -- toggle file explorer
---vim.keymap.set("n", "<leader>f", ":DrexDrawerFindFileAndFocus<CR>", { silent = true }) -- file explorer opens current file
-
 -- copilot remaps
 vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)")
 vim.keymap.set("i", "<M-[>", "<Plug>(copilot-previous)")
@@ -51,6 +43,11 @@ vim.keymap.set("i", "<M-!>", "<ESC>:Copilot disable<CR>a")
 vim.keymap.set("n", "ciw", '"_ciw')
 vim.keymap.set("n", "x", '"_x')
 
- -- Enable/Disable relative line numbers -- TODO
+vim.keymap.set("n", "<leader>h", "<C-w>h")
+vim.keymap.set("n", "<leader>j", "<C-w>j")
+vim.keymap.set("n", "<leader>k", "<C-w>k")
+vim.keymap.set("n", "<leader>l", "<C-w>l")
+
+-- Enable/Disable relative line numbers -- TODO
 --vim.keymap.set("n", "<C-E>", ":setlocal relativenumber<CR>" , { silent = true})
 --vim.keymap.set("n", "<C-e>", ":setlocal norelativenumber<CR>" , { silent = true})

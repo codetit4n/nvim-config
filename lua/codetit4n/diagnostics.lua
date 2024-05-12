@@ -1,5 +1,5 @@
 vim.diagnostic.config({
-    virtual_text = false,
+	virtual_text = false,
 })
 
 -- change the diagnostic signs
