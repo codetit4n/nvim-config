@@ -8,4 +8,6 @@ vim.lsp.start({
 	cmd = { "aptos-move-analyzer" },
 	filetypes = { "move" },
 	single_file_support = true,
+	capabilities = Capabilities,
+	root_dir = vim.fs.dirname(vim.fs.find({ "Move.toml" }, { upward = true })[1]),
 })
