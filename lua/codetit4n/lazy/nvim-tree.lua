@@ -13,7 +13,6 @@ return {
 					relativenumber = true,
 				},
 				renderer = {
-					--highlight_git = true,
 					group_empty = true,
 					icons = {
 						glyphs = {
@@ -34,6 +33,7 @@ return {
 							--},
 						},
 					},
+					highlight_git = "all",
 				},
 				--actions = {
 				--	open_file = {

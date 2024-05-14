@@ -2,6 +2,7 @@ require("codetit4n.set")
 require("codetit4n.remaps")
 require("codetit4n.lazy_init")
 require("codetit4n.diagnostics")
+require("codetit4n.nvim_tree_highlights")
 
 local augroup = vim.api.nvim_create_augroup
 local codetit4n_group = augroup("codetit4n", {})

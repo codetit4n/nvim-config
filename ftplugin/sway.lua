@@ -7,5 +7,5 @@ vim.lsp.start({
 	filetypes = { "sway" },
 	single_file_support = true,
 	capabilities = Capabilities,
-	root_dir = vim.fs.dirname(vim.fs.find({ "Forc.toml", "Cargo.toml" }, { upward = true })[1]),
+	root_dir = vim.fs.dirname(vim.fs.find({ "Forc.toml" }, { upward = true })[1]),
 })
