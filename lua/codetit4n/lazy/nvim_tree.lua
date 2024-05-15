@@ -33,7 +33,7 @@ return {
 							--},
 						},
 					},
-					highlight_git = "all",
+					highlight_git = "name",
 				},
 				--actions = {
 				--	open_file = {
