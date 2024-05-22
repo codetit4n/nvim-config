@@ -114,6 +114,15 @@ return {
 						}
 					end,
 				},
+				-- forc-fmt formatter for Fuel Sway language
+				sway = {
+					function()
+						return {
+							exe = "forc-fmt -p",
+							stdin = false,
+						}
+					end,
+				},
 				-- Since rustfmt is deprecated, install it using rustup
 				rust = {
 					function()
