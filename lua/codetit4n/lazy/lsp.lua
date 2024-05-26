@@ -48,5 +48,56 @@ return {
 				end,
 			},
 		})
+
+		-- Custom LSPs
+
+		local lspconfig = require("lspconfig")
+		local configs = require("lspconfig.configs")
+
+		-- Aptos Move language server
+		-- install aptos move analyzer - cargo install --git https://github.com/movebit/move --branch feature/aptos_move_analyzer aptos-move-analyzer
+		-- (last properly working version: 0.0.3)
+		-- In case the branch is not available, try: cargo install --git https://github.com/codetit4n/move --branch feature/aptos_move_analyzer aptos-move-analyzer
+		-- which is a fork of the original repository
+
+		if not configs.aptos_move_analyzer then
+			configs.aptos_move_analyzer = {
+				default_config = {
+					cmd = { "aptos-move-analyzer" },
+					filetypes = { "move" },
+					root_dir = function(fname)
+						return vim.fs.dirname(vim.fs.find({ "Move.toml" }, { upward = true })[1])
+					end,
+					settings = {},
+				},
+			}
+		end
+
+		lspconfig.aptos_move_analyzer.setup({
+			capabilities = Capabilities,
+		})
+
+		-- Fuel Sway language server (forc-lsp)
+		-- Install Fuel sway language server - https://fuel.network
+		if not configs.sway_lsp then
+			configs.sway_lsp = {
+				default_config = {
+					cmd = { "forc-lsp" },
+					filetypes = { "sway" },
+					init_options = {
+						-- Any initialization options
+						logging = { level = "trace" },
+					},
+					root_dir = function(fname)
+						return vim.fs.dirname(vim.fs.find({ "Forc.toml" }, { upward = true })[1])
+					end,
+					settings = {},
+				},
+			}
+		end
+
+		lspconfig.sway_lsp.setup({
+			capabilities = Capabilities,
+		})
 	end,
 }

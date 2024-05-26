@@ -115,10 +115,12 @@ return {
 					end,
 				},
 				-- forc-fmt formatter for Fuel Sway language
+				-- NOTE: Really unstable, that's why it's not added to format and save on write
+				-- Use it manually with :Format command
 				sway = {
 					function()
 						return {
-							exe = "forc-fmt -p",
+							exe = "forc-fmt --file",
 							stdin = false,
 						}
 					end,
