@@ -1,6 +1,6 @@
 function ColorScheme(color)
 	--color = color or "base16-paraiso"
-	color = color or "base16-ashes"
+	color = color or "base16-outrun-dark"
 
 	vim.cmd.colorscheme(color)
 
