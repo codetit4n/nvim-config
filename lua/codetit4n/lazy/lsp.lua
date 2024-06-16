@@ -13,6 +13,12 @@ return {
 	},
 
 	config = function()
+		local border = "rounded"
+
+		local handlers = {
+			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+			["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+		}
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
@@ -23,13 +29,14 @@ return {
 				"clangd",
 				"docker_compose_language_service",
 				"dockerls",
-                "solidity_ls_nomicfoundation",
-                "bashls"
+				"solidity_ls_nomicfoundation",
+				"bashls",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
 					require("lspconfig")[server_name].setup({
 						capabilities = Capabilities,
+						handlers = handlers,
 					})
 				end,
 
@@ -37,6 +44,7 @@ return {
 					local lspconfig = require("lspconfig")
 					lspconfig.lua_ls.setup({
 						capabilities = Capabilities,
+						handlers = handlers,
 						settings = {
 							Lua = {
 								runtime = { version = "Lua 5.1" },
@@ -76,6 +84,7 @@ return {
 
 		lspconfig.aptos_move_analyzer.setup({
 			capabilities = Capabilities,
+			handlers = handlers,
 		})
 
 		-- Fuel Sway language server (forc-lsp)
@@ -99,6 +108,7 @@ return {
 
 		lspconfig.sway_lsp.setup({
 			capabilities = Capabilities,
+			handlers = handlers,
 		})
 	end,
 }

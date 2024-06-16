@@ -40,6 +40,9 @@ vim.keymap.set("n", "<M-!>", ":Copilot disable<CR>")
 vim.keymap.set("i", "<M-@>", "<ESC>:Copilot enable<CR>a")
 vim.keymap.set("i", "<M-!>", "<ESC>:Copilot disable<CR>a")
 
+-- Markdown Preview
+vim.keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>", { silent = true })
+
 vim.keymap.set("n", "ciw", '"_ciw')
 vim.keymap.set("n", "x", '"_x')
 
