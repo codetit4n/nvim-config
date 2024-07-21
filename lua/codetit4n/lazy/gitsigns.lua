@@ -2,49 +2,64 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
-			-- configure/enable gitsigns
 			require("gitsigns").setup({
 				signs = {
-					add = { hl = "GitSignsAdd", text = "+", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-					change = {
-						hl = "GitSignsChange",
-						text = "~",
-						numhl = "GitSignsChangeNr",
-						linehl = "GitSignsChangeLn",
-					},
-					delete = {
-						hl = "GitSignsDelete",
-						text = "_",
-						numhl = "GitSignsDeleteNr",
-						linehl = "GitSignsDeleteLn",
-					},
-					topdelete = {
-						hl = "GitSignsDelete",
-						text = "‾",
-						numhl = "GitSignsDeleteNr",
-						linehl = "GitSignsDeleteLn",
-					},
-					changedelete = {
-						hl = "GitSignsChange",
-						text = "~",
-						numhl = "GitSignsChangeNr",
-						linehl = "GitSignsChangeLn",
-					},
+					add = { text = "+" },
+					change = { text = "~" },
+					delete = { text = "_" },
+					topdelete = { text = "‾" },
+					changedelete = { text = "~" },
+					untracked = { text = "┆" },
 				},
-				on_attach = function(bufnr)
-					vim.cmd([[
-        		      hi GitSignsAdd guifg=#98c379 guibg=#1e222a
-        		      hi GitSignsAddNr guifg=#98c379 guibg=#1e222a
-        		      hi GitSignsAddLn guifg=#98c379 guibg=#1e222a
-        		      hi GitSignsChange guifg=#61afef guibg=#1e222a
-        		      hi GitSignsChangeNr guifg=#61afef guibg=#1e222a
-        		      hi GitSignsChangeLn guifg=#61afef guibg=#1e222a
-        		      hi GitSignsDelete guifg=#e06c75 guibg=#1e222a
-        		      hi GitSignsDeleteNr guifg=#e06c75 guibg=#1e222a
-        		      hi GitSignsDeleteLn guifg=#e06c75 guibg=#1e222a
-        		    ]])
-				end,
+				signs_staged = {
+					add = { text = "+" },
+					change = { text = "~" },
+					delete = { text = "_" },
+					topdelete = { text = "‾" },
+					changedelete = { text = "~" },
+					untracked = { text = "┆" },
+				},
+				signs_staged_enable = true,
+				signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
+				numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
+				linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
+				word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
+				watch_gitdir = {
+					follow_files = true,
+				},
+				auto_attach = true,
+				attach_to_untracked = false,
+				current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+				current_line_blame_opts = {
+					virt_text = true,
+					virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+					delay = 1000,
+					ignore_whitespace = false,
+					virt_text_priority = 100,
+				},
+				current_line_blame_formatter = "<author>, <author_time:%R> - <summary>",
+				sign_priority = 6,
+				update_debounce = 100,
+				status_formatter = nil, -- Use default
+				max_file_length = 40000, -- Disable if file is longer than this (in lines)
+				preview_config = {
+					-- Options passed to nvim_open_win
+					border = "single",
+					style = "minimal",
+					relative = "cursor",
+					row = 0,
+					col = 1,
+				},
 			})
+			vim.api.nvim_set_hl(0, "GitSignsAdd", { link = "GitSignsAdd", bg = "#1e222a", fg = "#98c379" })
+			vim.api.nvim_set_hl(0, "GitSignsAddNr", { link = "GitSignsAddNr", bg = "#1e222a", fg = "#98c379" })
+			vim.api.nvim_set_hl(0, "GitSignsAddLn", { link = "GitSignsAddLn", bg = "#1e222a", fg = "#98c379" })
+			vim.api.nvim_set_hl(0, "GitSignsChange", { link = "GitSignsChange", bg = "#1e222a", fg = "#61afef" })
+			vim.api.nvim_set_hl(0, "GitSignsChangeNr", { link = "GitSignsChangeNr", bg = "#1e222a", fg = "#61afef" })
+			vim.api.nvim_set_hl(0, "GitSignsChangeLn", { link = "GitSignsChangeLn", bg = "#1e222a", fg = "#61afef" })
+			vim.api.nvim_set_hl(0, "GitSignsDelete", { link = "GitSignsDelete", bg = "#1e222a", fg = "#e06c75" })
+			vim.api.nvim_set_hl(0, "GitSignsDeleteNr", { link = "GitSignsDeleteNr", bg = "#1e222a", fg = "#e06c75" })
+			vim.api.nvim_set_hl(0, "GitSignsDeleteLn", { link = "GitSignsDeleteLn", bg = "#1e222a", fg = "#e06c75" })
 		end,
 	},
 }
