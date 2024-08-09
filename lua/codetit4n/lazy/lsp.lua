@@ -29,7 +29,7 @@ return {
 				"clangd",
 				"docker_compose_language_service",
 				"dockerls",
-				"solidity_ls_nomicfoundation",
+				"solidity_ls",
 				"bashls",
 			},
 			handlers = {
