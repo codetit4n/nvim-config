@@ -25,8 +25,12 @@ vim.keymap.set("v", "<right>", "<nop>")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- nvim tree
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
-vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- file explorer opens current file
+--vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
+--vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- file explorer opens current file
+
+-- oil nvim
+vim.keymap.set("n", "<leader>f", ":Oil<CR>", { silent = true }) -- open file explorer
+vim.keymap.set("n", "<leader>e", ":Oil .<CR>", { silent = true }) -- open file explorer in base directory
 
 -- copilot remaps
 vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)")
