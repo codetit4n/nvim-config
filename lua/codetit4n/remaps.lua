@@ -32,7 +32,7 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>f", ":Oil<CR>", { silent = true }) -- open file explorer
 vim.keymap.set("n", "<leader>e", ":Oil .<CR>", { silent = true }) -- open file explorer in base directory
 
--- copilot remaps
+-- copilot and copilot chat remaps
 vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)")
 vim.keymap.set("i", "<M-[>", "<Plug>(copilot-previous)")
 vim.keymap.set("n", "<M-2>", ":Copilot enable<CR>")
@@ -43,6 +43,7 @@ vim.keymap.set("n", "<M-@>", ":Copilot enable<CR>")
 vim.keymap.set("n", "<M-!>", ":Copilot disable<CR>")
 vim.keymap.set("i", "<M-@>", "<ESC>:Copilot enable<CR>a")
 vim.keymap.set("i", "<M-!>", "<ESC>:Copilot disable<CR>a")
+vim.keymap.set("n", "<leader>ch", ":CopilotChat<CR>")
 
 -- Markdown Preview
 vim.keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>", { silent = true })
@@ -50,10 +51,8 @@ vim.keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>", { silent = true })
 vim.keymap.set("n", "ciw", '"_ciw')
 vim.keymap.set("n", "x", '"_x')
 
-vim.keymap.set("n", "<leader>h", "<C-w>h")
-vim.keymap.set("n", "<leader>j", "<C-w>j")
-vim.keymap.set("n", "<leader>k", "<C-w>k")
-vim.keymap.set("n", "<leader>l", "<C-w>l")
+vim.keymap.set("n", "<leader>.", ":vertical resize +5<CR>", { silent = true })
+vim.keymap.set("n", "<leader>,", ":vertical resize -5<CR>", { silent = true })
 
 -- Enable/Disable relative line numbers -- TODO
 --vim.keymap.set("n", "<C-E>", ":setlocal relativenumber<CR>" , { silent = true})
