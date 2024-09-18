@@ -28,9 +28,13 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 --vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { silent = true }) -- toggle file explorer
 --vim.keymap.set("n", "<leader>f", ":NvimTreeFindFile<CR>", { silent = true }) -- file explorer opens current file
 
+-- neo tree
+vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { silent = true })
+vim.keymap.set("n", "<leader>f", ":Neotree reveal_force_cwd<CR>", { silent = true })
+
 -- oil nvim
-vim.keymap.set("n", "<leader>f", ":Oil<CR>", { silent = true }) -- open file explorer
-vim.keymap.set("n", "<leader>e", ":Oil .<CR>", { silent = true }) -- open file explorer in base directory
+--vim.keymap.set("n", "<leader>f", ":Oil<CR>", { silent = true }) -- open file explorer
+--vim.keymap.set("n", "<leader>e", ":Oil .<CR>", { silent = true }) -- open file explorer in base directory
 
 -- copilot and copilot chat remaps
 vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)")

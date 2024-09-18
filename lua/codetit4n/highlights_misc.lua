@@ -1,11 +1,9 @@
--- nvim tree highlights
-local modify_fg = "#FFA500"
+-- neo tree highlights
+local modify_fg = "orange"
 
 vim.cmd(string.format(
 	[[
-    highlight OilVcsStatusModified guifg=%s gui=bold
-    highlight OilVcsStatusUpstreamModified guifg=%s gui=bold
+    highlight NeoTreeGitModified guifg=%s
 ]],
-	modify_fg,
 	modify_fg
 ))
