@@ -32,6 +32,7 @@ return {
 				"solidity_ls_nomicfoundation",
 				"bashls",
 				"csharp_ls",
+				"asm_lsp",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)

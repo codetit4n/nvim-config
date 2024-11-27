@@ -14,6 +14,7 @@ return {
 				"stylua",
 				"clang-format",
 				"prettier",
+				"asmfmt",
 			},
 
 			-- if set to true this will check each tool for updates. If updates
@@ -195,6 +196,34 @@ return {
 				json = {
 					require("formatter.filetypes.json").prettier,
 				},
+				-- formatter for Assembly language
+				asm = {
+					function()
+						return {
+							exe = "asmfmt",
+							args = {},
+							stdin = true,
+						}
+					end,
+				},
+				nasm = {
+					function()
+						return {
+							exe = "asmfmt",
+							args = {},
+							stdin = true,
+						}
+					end,
+				},
+				s = {
+					function()
+						return {
+							exe = "asmfmt",
+							args = {},
+							stdin = true,
+						}
+					end,
+				},
 			},
 		})
 
@@ -202,7 +231,7 @@ return {
 		vim.api.nvim_exec(
 			[[  augroup FormatAutogroup
         autocmd!
-        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md,*.json,*.java,*.move :silent! FormatWrite
+        autocmd BufWritePost *.lua,*.rs,*.c,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md,*.json,*.java,*.move,*.s,*.nasm,*.asm :silent! FormatWrite
     augroup END
     ]],
 			true
