@@ -14,6 +14,30 @@ return {
 			run_on_start = true,
 		})
 
+		local function eslint_config_exists()
+			local config_patterns = {
+				".eslintrc.*", -- This will match .eslintrc.json, .eslintrc.js, .eslintrc.cjs, .eslintrc.yml, .eslintrc.yaml, etc.
+				"package.json", -- Special case for package.json with eslintConfig
+			}
+
+			for _, pattern in ipairs(config_patterns) do
+				-- Use glob to find matching files
+				local files = vim.fn.glob(vim.fn.getcwd() .. "/" .. pattern, 0, 1)
+				for _, file in ipairs(files) do
+					if vim.fn.fnamemodify(file, ":t") == "package.json" then
+						-- Check if package.json contains "eslintConfig"
+						local package_json = vim.fn.json_decode(vim.fn.readfile(file))
+						if package_json["eslintConfig"] then
+							return true
+						end
+					else
+						return true -- Found a matching .eslintrc.* file
+					end
+				end
+			end
+			return false
+		end
+
 		local lint = require("lint")
 		lint.linters_by_ft = {
 			javascript = { "eslint_d" },
@@ -31,12 +55,18 @@ return {
 		}, {
 			group = lint_augroup,
 			callback = function()
-				lint.try_lint()
+				if eslint_config_exists() then
+					lint.try_lint()
+				end
 			end,
 		})
 
 		vim.keymap.set("n", "<leader>l", function()
-			lint.try_lint()
+			if eslint_config_exists() then
+				lint.try_lint()
+			else
+				print("No ESLint config found!")
+			end
 		end)
 	end,
 }
