@@ -13,6 +13,79 @@ return {
 	},
 
 	config = function()
+		local function get_highest_version(versions)
+			table.sort(versions, function(a, b)
+				local function version_to_tuple(v)
+					local major, minor, patch = v:match("(%d+)%.(%d+)%.?(%d*)")
+					return tonumber(major), tonumber(minor), tonumber(patch or "0")
+				end
+
+				local a1, a2, a3 = version_to_tuple(a)
+				local b1, b2, b3 = version_to_tuple(b)
+
+				if a1 ~= b1 then
+					return a1 < b1
+				elseif a2 ~= b2 then
+					return a2 < b2
+				else
+					return a3 < b3
+				end
+			end)
+
+			return versions[#versions] -- The last element is the highest after sorting
+		end
+
+		local function parse_remappings()
+			local remappings = {}
+			local remappings_file = vim.fn.findfile("remappings.txt", ".;")
+			if remappings_file == "" then
+				return remappings
+			end
+
+			for line in io.lines(remappings_file) do
+				local key, value = line:match("^(.-)%s*=%s*(.+)$")
+				if key and value then
+					remappings[key] = value
+				end
+			end
+			return remappings
+		end
+
+		local function get_solidity_version()
+			-- Check for foundry.toml
+			local foundry_toml = vim.fs.find("foundry.toml", { upward = true, type = "file" })
+			if #foundry_toml > 0 then
+				for line in io.lines(foundry_toml[1]) do
+					local version = line:match('solc_version%s*=%s*"(.-)"')
+					if version then
+						return version
+					end
+				end
+			end
+
+			-- Check for hardhat.config.js or hardhat.config.ts
+			local hardhat_config = vim.fs.find(
+				{ "hardhat.config.js", "hardhat.config.ts" },
+				{ upward = true, type = "file" }
+			)
+			if #hardhat_config > 0 then
+				local versions = {}
+				for line in io.lines(hardhat_config[1]) do
+					-- Match multiple Solidity versions (e.g., in compilers or overrides)
+					for version in line:gmatch('version:%s*"(.-)"') do
+						table.insert(versions, version)
+					end
+				end
+				if #versions > 0 then
+					local highest_version = get_highest_version(versions)
+					return highest_version
+				end
+			end
+
+			-- Fallback to "latest" if no version is found
+			return "latest"
+		end
+
 		local border = "rounded"
 
 		local handlers = {
@@ -29,14 +102,32 @@ return {
 				"clangd",
 				"docker_compose_language_service",
 				"dockerls",
-				"solidity_ls_nomicfoundation",
 				"bashls",
 				"csharp_ls",
 				"asm_lsp",
+				"solidity_ls",
 			},
 			handlers = {
 				function(server_name) -- default handler (optional)
 					require("lspconfig")[server_name].setup({
+						capabilities = Capabilities,
+						handlers = handlers,
+					})
+				end,
+				["solidity_ls"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.solidity_ls.setup({
+						cmd = { "vscode-solidity-server", "--stdio" },
+						filetypes = { "solidity" },
+						root_dir = lspconfig.util.root_pattern("foundry.toml", "hardhat.config.*"),
+						settings = {
+							solidity = {
+								compileUsingRemoteVersion = get_solidity_version(),
+								defaultCompiler = "remote",
+								enabledAsYouTypeCompilationErrorCheck = true,
+								remapping = parse_remappings(),
+							},
+						},
 						capabilities = Capabilities,
 						handlers = handlers,
 					})
