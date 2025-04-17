@@ -107,3 +107,16 @@ cmp.setup({
 
 Capabilities =
 	vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), cmp_lsp.default_capabilities())
+
+-- Force all floating previews to have rounded border
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+	opts = opts or {}
+	opts.border = opts.border or "rounded"
+	return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
+vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" }) -- or set a custom transparency group
+vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" }) -- match border to your theme
+
