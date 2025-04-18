@@ -117,6 +117,11 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 	return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" }) -- or set a custom transparency group
+vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" }) -- or set a custom transparency groupinit
 vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" }) -- match border to your theme
 
+-- Completion menu highlights
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "#1f2335", fg = "#c0caf5" }) -- Background of the menu
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#414868", fg = "#ffffff", bold = true }) -- Selected item
+vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "#16161e" }) -- Scrollbar background
+vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#555555" }) -- Scrollbar thumb
