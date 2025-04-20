@@ -43,6 +43,18 @@ autocmd({ "BufWritePre" }, {
 	command = [[%s/\s\+$//e]],
 })
 
+local function goto_next_error()
+	vim.diagnostic.goto_next({
+		severity = vim.diagnostic.severity.ERROR,
+	})
+end
+
+local function goto_prev_error()
+	vim.diagnostic.goto_prev({
+		severity = vim.diagnostic.severity.ERROR,
+	})
+end
+
 autocmd("LspAttach", {
 	group = codetit4n_group,
 	callback = function(e)
@@ -77,6 +89,8 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", ";d", function()
 			vim.diagnostic.goto_prev()
 		end, opts)
+		vim.keymap.set("n", "'e", goto_next_error, opts)
+		vim.keymap.set("n", ";e", goto_prev_error, opts)
 	end,
 })
 
