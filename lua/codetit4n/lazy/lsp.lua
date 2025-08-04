@@ -98,7 +98,6 @@ return {
 				"docker_compose_language_service",
 				"dockerls",
 				"bashls",
-				"csharp_ls",
 				"asm_lsp",
 				"solidity_ls",
 			},
