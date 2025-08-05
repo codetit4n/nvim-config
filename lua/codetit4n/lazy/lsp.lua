@@ -100,6 +100,8 @@ return {
 				"bashls",
 				"asm_lsp",
 				"solidity_ls",
+				"cmake",
+				"yamlls",
 			},
 			handlers = {
 				function(server_name)

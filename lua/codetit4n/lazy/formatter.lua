@@ -86,14 +86,14 @@ return {
 				move = {
 					function()
 						-- some magic to check if file has a parse error before formatting
-						local success, _ = pcall(function()
+						local success, mmm = pcall(function()
 							local res = vim.fn.systemlist(
 								"movefmt "
 									.. util.escape_path(util.get_current_buffer_file_path())
 									.. " --emit stdout"
 									.. " | grep 'ERROR' | grep 'movefmt' | wc -l"
 							)
-							if tonumber(res[2]) == 0 then
+							if tonumber(res[1]) == 0 then
 								return true
 							else
 								error("ERROR: parse not ok!")
@@ -110,6 +110,7 @@ return {
 								util.escape_path(util.get_current_buffer_file_path()),
 								"--emit",
 								"stdout",
+								"--quiet",
 							},
 							stdin = true,
 						}
