@@ -1,4 +1,3 @@
--- ~/.config/nvim/lua/codetit4n/lazy/nvim-tree.lua
 return {
 	"nvim-tree/nvim-tree.lua",
 	tag = "v1.14.0",
@@ -35,7 +34,7 @@ return {
 					},
 				},
 			},
-			filters = { dotfiles = true },
+			filters = { dotfiles = false },
 			git = { enable = true, ignore = false, timeout = 500 },
 		})
 
