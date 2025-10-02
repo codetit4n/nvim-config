@@ -8,7 +8,7 @@ return {
 		opts = {
 			window = {
 				layout = "float",
-				title = "  Copilot AI",
+				title = "  AI",
 				relative = "cursor",
 				width = 1,
 				height = 1,
@@ -16,7 +16,7 @@ return {
 
 			headers = {
 				user = "👤codetit4n",
-				assistant = "  Copilot",
+				assistant = "  AI",
 				tool = "🔧 Tool",
 			},
 

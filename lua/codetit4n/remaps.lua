@@ -47,7 +47,7 @@ vim.keymap.set("n", "<M-@>", ":Copilot enable<CR>")
 vim.keymap.set("n", "<M-!>", ":Copilot disable<CR>")
 vim.keymap.set("i", "<M-@>", "<ESC>:Copilot enable<CR>a")
 vim.keymap.set("i", "<M-!>", "<ESC>:Copilot disable<CR>a")
-vim.keymap.set("n", "<leader>gh", ":CopilotChatToggle<CR>")
+vim.keymap.set("n", "<leader>[", ":CopilotChatToggle<CR>")
 vim.keymap.set("v", "<leader>ge", ":CopilotChatExplain<CR>")
 
 -- Markdown Preview
