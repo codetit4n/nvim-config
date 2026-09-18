@@ -5,6 +5,7 @@ return {
 			{ "nvim-lua/plenary.nvim", branch = "master" },
 		},
 		build = "make tiktoken",
+		model = "auto",
 		opts = {
 			window = {
 				layout = "float",

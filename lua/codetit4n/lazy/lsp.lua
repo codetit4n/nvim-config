@@ -1,6 +1,28 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
+		{
+			"Julian/lean.nvim",
+			init = function()
+				vim.g.lean_config = {
+					mappings = true,
+					infoview = { orientation = "vertical", width = 50 },
+					lsp = { enable = false }, -- Enable alongside the other servers below.
+				}
+				vim.api.nvim_create_autocmd({ "BufWinEnter", "VimEnter", "VimResized" }, {
+					group = vim.api.nvim_create_augroup("LeanInfoviewRight", { clear = true }),
+					callback = function()
+						-- Run after the plugin and startup window layout have finished.
+						vim.schedule(function()
+							local infoview = require("lean.infoview").get_current_infoview()
+							if infoview and infoview.window then
+								infoview:move_to_right()
+							end
+						end)
+					end,
+				})
+			end,
+		},
 		"williamboman/mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
 		"hrsh7th/cmp-nvim-lsp",
@@ -209,6 +231,13 @@ return {
 			settings = {},
 		})
 
+		-- Lean (server command and project detection supplied by lean.nvim)
+		vim.lsp.config("leanls", {
+			filetypes = {
+				"lean",
+			},
+		})
+
 		-- Mason
 		require("mason").setup()
 
@@ -234,6 +263,7 @@ return {
 		vim.lsp.enable({
 			"aptos_move_analyzer",
 			"sway_lsp",
+			"leanls",
 		})
 	end,
 }

@@ -1,6 +1,7 @@
 return {
 	"mhartington/formatter.nvim",
 	dependencies = {
+		{ "williamboman/mason.nvim", opts = {} },
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 
@@ -15,6 +16,7 @@ return {
 				"clang-format",
 				"prettier",
 				"asmfmt",
+				"autopep8",
 			},
 
 			-- if set to true this will check each tool for updates. If updates
@@ -181,6 +183,35 @@ return {
 					-- "typescriptreact" filetype
 					require("formatter.filetypes.typescriptreact").prettier,
 				},
+				python = {
+					function()
+						local config = require("formatter.filetypes.python").autopep8()
+						-- Fish may reset PATH, so resolve the executable before starting the shell.
+						config.exe = vim.fn.shellescape(vim.fn.exepath("autopep8"))
+						return config
+					end,
+				},
+				lean = {
+					function()
+						local root = vim.fs.root(util.get_current_buffer_file_path(), { "lean-toolchain" })
+						-- This lean4fmt build must match the project's compiled Lean imports.
+						if not root or vim.fn.readfile(root .. "/lean-toolchain")[1] ~= "leanprover/lean4:v4.31.0" then
+							vim.notify(
+								"lean4fmt requires a project using Lean 4.31.0; formatting skipped",
+								vim.log.levels.WARN
+							)
+							return nil
+						end
+						return {
+							exe = vim.fn.shellescape(vim.fn.exepath("lake")),
+							args = { "env", vim.fn.shellescape(vim.fn.expand("~/.local/bin/lean4fmt")), "--write" },
+							cwd = root,
+							stdin = false, -- --write changes only formatter.nvim's temporary copy.
+							tempfile_dir = vim.fn.stdpath("cache"),
+							tempfile_postfix = ".lean",
+						}
+					end,
+				},
 				-- since no formatter for solidity, using forge - make sure it is installed
 				solidity = {
 					function()
@@ -232,7 +263,7 @@ return {
 		vim.api.nvim_exec(
 			[[  augroup FormatAutogroup
         autocmd!
-        autocmd BufWritePost *.lua,*.rs,*.c,*.h,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md,*.json,*.java,*.move,*.s,*.nasm,*.asm :silent! FormatWrite
+        autocmd BufWritePost *.lua,*.rs,*.c,*.h,*.cpp,*.cs,*.js,*.jsx,*.ts,*.tsx,*.sol,*.md,*.json,*.java,*.move,*.s,*.nasm,*.asm,*.py,*.lean :silent! FormatWrite
     augroup END
     ]],
 			true
