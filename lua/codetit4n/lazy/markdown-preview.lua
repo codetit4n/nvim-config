@@ -1,13 +1,14 @@
 return {
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		build = "cd app && yarn install",
-		init = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-			vim.g.mkdp_port = "8765"
-			vim.g.mkdp_echo_preview_url = 1
-		end,
-		ft = { "markdown" },
-	},
+    {
+        "iamcco/markdown-preview.nvim",
+        enabled = true,
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && yarn install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+            vim.g.mkdp_port = "8765"
+            vim.g.mkdp_echo_preview_url = 1
+        end,
+        ft = { "markdown" },
+    },
 }

@@ -1,47 +1,79 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	branch = "master",
-	build = ":TSUpdate",
+	branch = "main",
 	lazy = false,
+	build = ":TSUpdate",
 
 	config = function()
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = {
-				"vimdoc",
+		local treesitter = require("nvim-treesitter")
+
+		treesitter.setup({})
+
+		local languages = {
+			"vimdoc",
+			"javascript",
+			"typescript",
+			"c",
+			"lua",
+			"rust",
+			"jsdoc",
+			"bash",
+			"cpp",
+			"tsx",
+			"python",
+			"json",
+			"markdown",
+			"markdown_inline",
+		}
+
+		-- Install missing parsers
+		treesitter.install(languages)
+
+		-- Enable Treesitter highlighting and indentation
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = {
 				"javascript",
 				"typescript",
+				"javascriptreact",
+				"typescriptreact",
 				"c",
+				"cpp",
 				"lua",
 				"rust",
-				"jsdoc",
 				"bash",
-				"cpp",
-				"tsx",
+				"sh",
+				"python",
+				"json",
+				"markdown",
 				"gitignore",
+				"vimdoc",
+				"move",
 			},
 
-			sync_install = false,
-			auto_install = true,
+			callback = function(args)
+				-- Start highlighting only if a parser is available
+				pcall(vim.treesitter.start, args.buf)
 
-			indent = {
-				enable = true,
-			},
-
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = { "markdown" },
-			},
+				-- Preserve regular indentation for Markdown
+				if vim.bo[args.buf].filetype ~= "markdown" then
+					vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				end
+			end,
 		})
 
-		local treesitter_parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-		treesitter_parser_config.move = {
-			install_info = {
-				url = "https://github.com/codeTIT4N/tree-sitter-move",
-				files = { "src/parser.c" },
-				branch = "master",
-			},
-		}
+		-- Custom Move parser
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "TSUpdate",
+			callback = function()
+				require("nvim-treesitter.parsers").move = {
+					install_info = {
+						url = "https://github.com/codeTIT4N/tree-sitter-move",
+						files = { "src/parser.c" },
+						branch = "master",
+					},
+				}
+			end,
+		})
 
 		vim.treesitter.language.register("move", "move")
 	end,

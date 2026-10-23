@@ -7,12 +7,11 @@ return {
 				vim.g.lean_config = {
 					mappings = true,
 					infoview = { orientation = "vertical", width = 50 },
-					lsp = { enable = false }, -- Enable alongside the other servers below.
+					lsp = { enable = false },
 				}
 				vim.api.nvim_create_autocmd({ "BufWinEnter", "VimEnter", "VimResized" }, {
 					group = vim.api.nvim_create_augroup("LeanInfoviewRight", { clear = true }),
 					callback = function()
-						-- Run after the plugin and startup window layout have finished.
 						vim.schedule(function()
 							local infoview = require("lean.infoview").get_current_infoview()
 							if infoview and infoview.window then
@@ -117,18 +116,12 @@ return {
 			return "latest"
 		end
 
-		local border = "rounded"
+		-- Neovim 0.12: rounded borders for floating windows
+		vim.o.winborder = "rounded"
 
-		local handlers = {
-			["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-
-			["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-		}
-
-		-- Default capabilities/handlers inherited by every server
+		-- Default capabilities inherited by every server
 		vim.lsp.config("*", {
 			capabilities = capabilities,
-			handlers = handlers,
 		})
 
 		-- Lua
@@ -231,10 +224,22 @@ return {
 			settings = {},
 		})
 
-		-- Lean (server command and project detection supplied by lean.nvim)
+		-- Lean
 		vim.lsp.config("leanls", {
 			filetypes = {
 				"lean",
+			},
+		})
+
+		-- CMake Language Server
+		-- Installed externally using uv with Python 3.13
+		vim.lsp.config("cmake", {
+			cmd = { "cmake-language-server" },
+			filetypes = { "cmake" },
+			root_markers = {
+				"CMakeLists.txt",
+				"cmake",
+				".git",
 			},
 		})
 
@@ -253,17 +258,17 @@ return {
 				"bashls",
 				"asm_lsp",
 				"solidity_ls",
-				"cmake",
 				"yamlls",
 			},
 			automatic_enable = true,
 		})
 
-		-- Custom/non-Mason servers
+		-- Custom and externally installed servers
 		vim.lsp.enable({
 			"aptos_move_analyzer",
 			"sway_lsp",
 			"leanls",
+			"cmake",
 		})
 	end,
 }

@@ -12,8 +12,8 @@ function ColorScheme(color)
 	vim.cmd("highlight NormalFloat guibg=black guifg=none")
 
 	-- In your colorscheme or init.lua
-	vim.api.nvim_set_hl(0, "CopilotChatHeader", { fg = "#7C3AED", bold = true })
-	vim.api.nvim_set_hl(0, "CopilotChatSeparator", { fg = "#374151" })
+	--vim.api.nvim_set_hl(0, "CopilotChatHeader", { fg = "#7C3AED", bold = true })
+	--vim.api.nvim_set_hl(0, "CopilotChatSeparator", { fg = "#374151" })
 end
 
 return {
